@@ -28,7 +28,7 @@ export default function ListSongs() {
 					{DataSongs.map((song, index) => (
 						<tr
 							key={index}
-							className={`bg-slate-800 h-12 text-white hover:bg-gray-600 ${
+							className={`md:cursor-pointer bg-slate-800 h-12 text-white hover:bg-gray-600 ${
 								idSong === song.id && 'bg-black-600 text-green-200'
 							}`}
 							onClick={() => handlePlaySong(song.id)}

@@ -15,9 +15,9 @@ export default function DetailSong() {
 				</div>
 				<div className='w-[80%] relative'>
 					<div className="absolute top-0 right-5 flex mt-[-10px]">
-						<button className="text-white">Sign In</button>
+						<button className="text-white rounded-lg px-4 py-3 bg-slate-500 hover:bg-sky-400">Sign In</button>
 						<p className="text-white text-xl mt-[-2px] mr-3 ml-3">|</p>
-						<button className="text-white">Sign Up</button>
+						<button className="text-white rounded-lg px-4 py-3 bg-slate-500 hover:bg-sky-400">Sign Up</button>
 					</div>
 					<div className='m-auto mt-20'>
 						<h2 className="text-white font-bold text-center uppercase">Now playing</h2>
