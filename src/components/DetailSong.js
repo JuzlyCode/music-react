@@ -1,10 +1,15 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Songs } from '../Context';
 import Playing from './Playing';
+import Login from './Login';
 import './keyf.css';
 export default function DetailSong() {
+	
 	const { song } = useContext(Songs);
+
+
 	return (
+		
 		<div className="row-span-3 p-3 overflow-hidden">
 			<div className="flex h-[255px]">
 				<div className="w-[20%] relative">
@@ -13,11 +18,17 @@ export default function DetailSong() {
 					<div className="h-14 w-14 rounded-full bg-slate-700"></div>
 					</div>
 				</div>
+
 				<div className='w-[80%] relative'>
-					<div className="absolute top-0 right-5 flex mt-[-10px]">
-						<button className="text-white rounded-lg px-4 py-3 bg-slate-500 hover:bg-sky-400">Sign In</button>
-						<p className="text-white text-xl mt-[-2px] mr-3 ml-3">|</p>
-						<button className="text-white rounded-lg px-4 py-3 bg-slate-500 hover:bg-sky-400">Sign Up</button>
+					{/* login */}
+
+					<Login/>
+					
+					{/* search */}
+					<div className="absolute top-0 left-5 flex mt-[-10px] ml-[-20px]">
+						<form>
+							<input type="text" placeholder="Tìm nhạc..." className="bg-inherit border-2 border-white p-[4px] w-[300px]"></input>
+						</form>
 					</div>
 					<div className='m-auto mt-20'>
 						<h2 className="text-white font-bold text-center uppercase">Now playing</h2>
