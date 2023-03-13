@@ -17,7 +17,7 @@ export default function Login() {
 		e.preventDefault();
 		console.log(email, password);
 		window.localStorage.setItem('email', email);
-		fetch('https://178.128.104.249:5000/login-user', {
+		fetch('http://178.128.104.249:5000/login-user', {
 			method: 'POST',
 			crossDomain: true,
 			headers: {
