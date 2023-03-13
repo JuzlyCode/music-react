@@ -56,7 +56,7 @@ export default function Login() {
 			e.preventDefault();
 
 			console.log(email2, password2, checkPassword2);
-			fetch('https://178.128.104.249:5000/register', {
+			fetch('http://178.128.104.249:5000/register', {
 				method: 'POST',
 				crossDomain: true,
 				headers: {
