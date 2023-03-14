@@ -12,7 +12,7 @@ export default function UserHome({ userData }) {
 			<h1>{window.localStorage.getItem('email')}</h1>
 			<br />
 			<p className="text-white text-xl mt-[-2px] mr-3 ml-3">|</p>
-			<button onClick={logOut} className="ml-3 btn btn-primary">
+			<button onClick={logOut} className="btn btn-primary">
 				Log Out
 			</button>
 		</div>
