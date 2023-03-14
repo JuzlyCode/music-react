@@ -17,7 +17,7 @@ export default function Login() {
 		e.preventDefault();
 		console.log(email, password);
 		window.localStorage.setItem('email', email);
-		fetch('hhttps://music-node-js.vercel.app/login-user', {
+		fetch('https://music-node-js.vercel.app/login-user', {
 			method: 'POST',
 			crossDomain: true,
 			headers: {
