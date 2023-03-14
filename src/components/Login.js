@@ -17,7 +17,7 @@ export default function Login() {
 		e.preventDefault();
 		console.log(email, password);
 		window.localStorage.setItem('email', email);
-		fetch('https://178.128.104.249:5000/login-user', {
+		fetch('hhttps://music-node-js.vercel.app/login-user', {
 			method: 'POST',
 			crossDomain: true,
 			headers: {
@@ -56,7 +56,7 @@ export default function Login() {
 			e.preventDefault();
 
 			console.log(email2, password2, checkPassword2);
-			fetch('https://178.128.104.249:5000/register', {
+			fetch('https://music-node-js.vercel.app/register', {
 				method: 'POST',
 				crossDomain: true,
 				headers: {
