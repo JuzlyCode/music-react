@@ -6,7 +6,7 @@ export default function UserDetails() {
 	const [userData, setUserData] = useState('');
 
 	useEffect(() => {
-		fetch('https://178.128.104.249:5000/userData', {
+		fetch('https://music-node-js.vercel.app/userData', {
 			method: 'POST',
 			crossDomain: true,
 			headers: {
