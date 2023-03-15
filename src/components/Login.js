@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import UserHome from './UserHome';
-
+import './Logo.css';
 export default function Login() {
 	const [show, setShow] = useState(1);
 	const tab = (e) => {
@@ -130,7 +130,10 @@ export default function Login() {
 								onChange={(e) => setPassword(e.target.value)}
 							></input>
 						</div>
-						<div className="w-[100%] pl-3 pr-3 pb-3 flex justify-end">
+						<div className="w-[100%] pl-3 pr-3 pb-3 flex justify-between">
+							<button className=" p-2 flex items-center border-2 border-slate-700" type="submit  ">
+								<div className='Logo mr-2'></div> Sign In With Google
+							</button>
 							<button className="w-[30%] p-2 border-2 border-slate-700" type="submit">
 								Sign In
 							</button>
@@ -179,9 +182,12 @@ export default function Login() {
 								onChange={(e) => setCheckPassword2(e.target.value)}
 							></input>
 						</div>
-						<div className="w-[100%] pl-3 pr-3 pb-3 flex justify-end">
+						<div className="w-[100%] pl-3 pr-3 pb-3 flex justify-between">
+							<button className=" p-2 flex items-center border-2 border-slate-700" type="submit  ">
+								<div className='Logo mr-2'></div> Sign Up With Google
+							</button>
 							<button className="w-[30%] p-2 border-2 border-slate-700" type="submit  ">
-								Sign Up
+								Sign Up 
 							</button>
 						</div>
 					</form>
