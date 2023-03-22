@@ -1,10 +1,10 @@
-import React, { useContext, useState } from 'react';
-import { Songs } from '../Context';
-import Playing from './Playing';
-import Login from './Login';
+import React from 'react';
 import './keyf.css';
+import Login from '../Auth/Login';
+import Playing from './Playing';
+import { useSongContext } from 'contexts/SongContext';
 export default function DetailSong() {
-	const { song } = useContext(Songs);
+	const { song } = useSongContext();
 
 	return (
 		<div className="row-span-3 p-3 overflow-hidden">

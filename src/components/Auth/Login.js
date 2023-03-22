@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import UserHome from './UserHome';
+import UserHome from '../UserHome';
 import './Logo.css';
 export default function Login() {
 	const [show, setShow] = useState(1);

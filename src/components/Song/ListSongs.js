@@ -1,8 +1,8 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { Songs } from '../Context';
+import React, { useEffect, useState } from 'react';
+import { useSongContext } from 'contexts/SongContext';
 
 export default function ListSongs() {
-	const { DataSongs, handleSetSong, song } = useContext(Songs);
+	const { DataSongs, handleSetSong, song } = useSongContext();
 	const [idSong, setidSong] = useState(0);
 	const handlePlaySong = (idSong) => {
 		setidSong(idSong);

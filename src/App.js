@@ -1,32 +1,26 @@
 import './App.css';
-import Navbar from './components/Navbar';
-import DetailSong from './components/DetailSong';
-import ListSongs from './components/ListSongs';
-import { Songs } from './Context';
-import DataSongs from './data/songs.json';
-import { useState } from 'react';
-function App() {
-	const [song, setSong] = useState(DataSongs[0]);
+import Navbar from './components/Layout/Navbar';
+import DetailSong from './components/Song/DetailSong';
+import ListSongs from './components/Song/ListSongs';
+import { SongProvider } from './contexts/SongContext';
+import { UserProvider } from './contexts/UserContext';
 
-	const handleSetSong = (idSong) => {
-		const song = DataSongs.find((song) => song.id === idSong);
-		if (!song) setSong(DataSongs[0]);
-		else setSong(song);
-	};
+function App() {
+	
 	return (
-		<div className="App ">
-			<Songs.Provider value={{ DataSongs, song, handleSetSong }}>
-				<Navbar />
-				<div className="grid grid-rows-7 bg-slate-700 h-screen overflow-hidden">
-					{/* span 3 */}
-					<DetailSong />
-					{/* span 4 */}
-					<ListSongs />
-				</div>
-				{/* <Playing /> */}
-			</Songs.Provider>
-		</div>
-	);
+    <UserProvider>
+      <SongProvider>
+        <Navbar />
+        <div className="grid grid-rows-7 bg-slate-700 h-screen overflow-hidden">
+          {/* span 3 */}
+          <DetailSong />
+          {/* span 4 */}
+          <ListSongs />
+        </div>
+        {/* <Playing /> */}
+      </SongProvider>
+    </UserProvider>
+  );
 }
 
 export default App;

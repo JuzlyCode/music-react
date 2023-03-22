@@ -1,10 +1,10 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import AudioPlayer from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';
-import { Songs } from '../Context';
+import { useSongContext } from 'contexts/SongContext';
 
 export default function Playing() {
-	const { song, handleSetSong } = useContext(Songs);
+	const { song, handleSetSong } = useSongContext();
 	const handleClickNext = () => {
 		handleSetSong(song.id + 1);
 	};
