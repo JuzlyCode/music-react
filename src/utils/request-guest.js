@@ -1,18 +1,16 @@
 import axios from "axios";
 import { API_URL } from "./constants";
 
-const token = localStorage.getItem("token");
-const request = axios.create({
+const requestGuest = axios.create({
   baseURL: API_URL,
   headers: {
-    Authorization: `Bearer ${token}`,
     "Content-Type": "application/json",
     Accept: "application/json",
     "Access-Control-Allow-Origin": "*",
   },
 });
 
-request.interceptors.request.use(
+requestGuest.interceptors.request.use(
   function (config) {
     // Xử lý trước khi request
     return config;
@@ -23,7 +21,7 @@ request.interceptors.request.use(
   }
 );
 
-request.interceptors.response.use(
+requestGuest.interceptors.response.use(
   function (response) {
     // xử lý data trả về
     return response.data;
@@ -34,4 +32,4 @@ request.interceptors.response.use(
   }
 );
 
-export default request;
+export default requestGuest;

@@ -1,8 +1,6 @@
-import React from 'react';
-import './keyf.css';
-import Login from '../Auth/Login';
-import Playing from './Playing';
 import { useSongContext } from 'contexts/SongContext';
+import './keyf.css';
+import Playing from './Playing';
 export default function DetailSong() {
 	const { song } = useSongContext();
 
@@ -21,20 +19,6 @@ export default function DetailSong() {
 				</div>
 
 				<div className="w-[80%] relative">
-					{/* login */}
-
-					<Login />
-
-					{/* search */}
-					{/* <div className="absolute top-0 left-5 flex mt-[-10px] ml-[-20px]">
-						<form>
-							<input type="text" placeholder="Tìm nhạc..." className="bg-inherit border-2 border-white p-[4px] w-[300px]"></input>
-						</form>
-					</div>
-					<div className='m-auto mt-20'>
-						<h2 className="text-white font-bold text-center uppercase">Now playing</h2>
-						<h2 className="text-neutral-400 text-2xl text-center uppercase">{song.name}</h2>
-					</div> */}
 					<div className="w-[100%] absolute bottom-0">
 						<Playing />
 					</div>
