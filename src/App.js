@@ -1,12 +1,16 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import "./App.css";
 import Navbar from "components/Layout/Navbar";
+import NotFound from "components/NotFound";
 import { SongProvider } from "contexts/SongContext";
 import { useCurrentUser, UserProvider } from "contexts/UserContext";
 import HomePage from "pages/Home";
-import UserDataPage from "pages/UserData";
 import MyPlaylist from "pages/MyPlaylist";
-import NotFound from "components/NotFound";
+import UserDataPage from "pages/UserData";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+
+import { ToastContainer } from 'react-toastify';
+
+import 'react-toastify/dist/ReactToastify.css';
+import "./App.css";
 
 const AppRoute = () => {
   const {currentUser} = useCurrentUser();
@@ -37,6 +41,7 @@ function App() {
   return (
     <UserProvider>
       <SongProvider>
+      <ToastContainer />
         <BrowserRouter>
           <Navbar />
           <AppRoute />

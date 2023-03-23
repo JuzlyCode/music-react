@@ -15,6 +15,7 @@ const request = axios.create({
 request.interceptors.request.use(
   function (config) {
     // Xử lý trước khi request
+    if(!token) return;
     return config;
   },
   function (error) {
