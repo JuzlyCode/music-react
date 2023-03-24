@@ -71,7 +71,7 @@ const MyPlaylist = () => {
                       src={item.links.images[0].url}
                     />
                     <div className="flex flex-col px-2 w-full">
-                      <span className={`text-sm ${playing._id === item._id ? 'text-green-500' : 'text-red-500 ' } capitalize font-semibold pt-1`}>
+                      <span className={`text-sm ${playing?._id === item?._id ? 'text-green-500' : 'text-red-500 ' } capitalize font-semibold pt-1`}>
                         {item.name}
                       </span>
                       <span className="text-xs text-gray-500 uppercase font-medium ">
