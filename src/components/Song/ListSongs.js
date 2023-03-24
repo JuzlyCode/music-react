@@ -3,18 +3,17 @@ import { useSongContext } from 'contexts/SongContext';
 import { useCurrentUser } from 'contexts/UserContext';
 import { toast } from 'react-toastify';
 import request from 'utils/request';
+import { usePlayContext } from 'contexts/PlayContext';
 export default function ListSongs() {
-	const { DataSongs, handleSetSong, song } = useSongContext();
+	const { DataSongs, handleSetSong } = useSongContext();
+  const {songs, setSongs, playing, PlaySong, ClosePlay, PlayList, NextSong, PreviousSong} = usePlayContext();
+
   const {currentUser} = useCurrentUser();
 
-	const [idSong, setidSong] = useState(0);
-	const handlePlaySong = (idSong) => {
-		setidSong(idSong);
-		handleSetSong(idSong);
+	const handlePlaySong = (song) => {
+		PlaySong(song)
+    setSongs(DataSongs)
 	};
-	useEffect(() => {
-		setidSong(song.id);
-	}, [song]);
 	return (
     <div className="row-span-4 mt-0 overflow-y-scroll md:border-t-4">
       <table className="table-auto w-full">
@@ -33,10 +32,8 @@ export default function ListSongs() {
           {DataSongs.map((song, index) => (
             <tr
               key={index}
-              className={`md:cursor-pointer bg-slate-800 h-12 text-white hover:bg-gray-600 ${
-                idSong === song.id && "bg-black-600 text-green-200"
-              }`}
-              onClick={() => handlePlaySong(song.id)}
+              className={`md:cursor-pointer bg-slate-800 h-12 text-white hover:bg-gray-600`}
+              onClick={() => handlePlaySong(song)}
             >
               <td className="text-center group">
                 <button onClick={(e)=> {
@@ -63,7 +60,7 @@ export default function ListSongs() {
                 }}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    class="h-6 w-6 mx-auto"
+                    className="h-6 w-6 mx-auto"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="#a83f39"

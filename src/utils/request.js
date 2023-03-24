@@ -1,4 +1,5 @@
 import axios from "axios";
+import { toast } from "react-toastify";
 import { API_URL } from "./constants";
 
 const token = localStorage.getItem("token");
@@ -20,6 +21,7 @@ request.interceptors.request.use(
   },
   function (error) {
     // Xử lý lỗi
+    // toast.error('Máy chủ không phản hồi')
     return Promise.reject(error);
   }
 );
@@ -31,6 +33,7 @@ request.interceptors.response.use(
   },
   function (error) {
     //    Error
+    // toast.error('Máy chủ không phản hồi')
     return Promise.reject(error);
   }
 );

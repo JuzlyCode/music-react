@@ -44,16 +44,17 @@ const Login = ({ tab }) => {
         email,
         password,
       }),
-    }).then((res) => {
-      console.log(res, "login-user");
+    }).then(async (res) => {
       if (res.status === 200) {
         toast.success('Đăng nhập thành công');
-        localStorage.setItem("token", res.accessToken);
-        localStorage.setItem("1", 1);
-        tab(1);
+        await localStorage.setItem("token", res.accessToken);
+        await localStorage.setItem("1", 1);
+        await tab(1);
         setRefresh(Date.now())
-      } else {
-       toast.error("Sai tài khoản hoặc mật khẩu vui lòng kiểm tra lại")
+      }
+    }).catch(e=>{
+      if(e.response.data.error.status === 401){
+        toast.error("Sai tài khoản hoặc mật khẩu vui lòng kiểm tra lại");
       }
     });
   }
