@@ -24,7 +24,7 @@ export const PlayProvider = ({children}) => {
 
     const NextSong = () => {
         // find Index in playlist
-        const currentIndex = songs.findIndex(item => item._id === playing._id);
+        const currentIndex = songs.findIndex(item => item.url === playing.url);
         if(currentIndex === - 1 ) return;
         if(songs.length - 1 > currentIndex){
             setPlaying(songs[currentIndex + 1])
@@ -35,7 +35,7 @@ export const PlayProvider = ({children}) => {
 
     const PreviousSong = () => {
         // find Index in playlist
-        const currentIndex = songs.findIndex(item => item._id === playing._id);
+        const currentIndex = songs.findIndex(item => item.url === playing.url);
         if(currentIndex === - 1 ) return;
         if(currentIndex === 0){
             setPlaying(songs.length > 0 ? songs[songs.length - 1] : songs[0]);
@@ -45,7 +45,7 @@ export const PlayProvider = ({children}) => {
     }
 
     return (
-        <PlayContext.Provider value={{ songs, setSongs, playing, PlaySong, ClosePlay, PlayList, NextSong, PreviousSong }}>
+        <PlayContext.Provider value={{ songs, playing, setSongs, PlaySong, ClosePlay, PlayList, NextSong, PreviousSong }}>
             {children}
         </PlayContext.Provider>
     );
