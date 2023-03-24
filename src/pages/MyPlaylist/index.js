@@ -15,9 +15,6 @@ const MyPlaylist = () => {
   useEffect(()=> {
     request({
       url: '/api/update/get-list-music',
-      params: {
-        userDetail: currentUser
-      }
     }).then(res=>{
       console.log(res);
       if(res.status === 200){

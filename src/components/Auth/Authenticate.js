@@ -35,6 +35,7 @@ const Login = ({ tab }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const {setRefresh} = useCurrentUser();
+
   function handleSubmit(e) {
     e.preventDefault();
     requestGuest({
@@ -50,6 +51,7 @@ const Login = ({ tab }) => {
         await localStorage.setItem("token", res.accessToken);
         await localStorage.setItem("1", 1);
         await tab(1);
+        window.location.reload();
         setRefresh(Date.now())
       }
     }).catch(e=>{
@@ -117,6 +119,10 @@ const Register = ({ tab }) => {
           toast.warning("User này đã tồn tại");
         } else {
           toast.error("Có lỗi, vui lòng thử lại");
+        }
+      }).catch(e=>{
+        if(e.response.data.error.status === 409){
+          toast.warning("User này đã tồn tại");
         }
       });
     }
