@@ -31,7 +31,7 @@ export default function ListSongs() {
           {DataSongs.map((song, index) => (
             <tr
               key={index}
-              className={`md:cursor-pointer bg-slate-800 h-12 ${playing?.url === song.url ? 'text-green-500' : 'text-white'}  hover:bg-gray-600`}
+              className={`md:cursor-pointer bg-slate-800 h-12 ${playing?.name === song.name ? 'text-green-500' : 'text-white'}  hover:bg-gray-600`}
               onClick={() => handlePlaySong(song)}
             >
               <td className="text-center group">
